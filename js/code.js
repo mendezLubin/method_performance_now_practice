@@ -9,20 +9,20 @@ let selPlayButton = document.querySelector(".playBtn");
 let selPauseButton = document.querySelector(".pauseBtn");
 let selCount= document.querySelector(".count");
 
-let timeElapsed= null;
+let timeUntilButtonPress= null;
 let intervalId= null;
 
 // Add event listener to the play button
 selPlayButton.addEventListener("click", funcCallEverySecond);
 
 function funcCallEverySecond() {
-  timeElapsed= performance.now();
+  timeUntilButtonPress= performance.now();
   intervalId= setInterval(funcCheckTime, 1000);
 }
 
 function funcCheckTime() {
   const now= performance.now();
-  selCount.textContent= now - timeElapsed ;
+  selCount.textContent= now - timeUntilButtonPress;
 }
 
 selPauseButton.addEventListener("click", pauseTimer);
